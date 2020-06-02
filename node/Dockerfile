@@ -8,4 +8,8 @@ ADD ./accounts ./datadir/keystore
 
 ADD ./password.txt ./password.txt
 
-CMD geth --datadir ./datadir --unlock 0 --password password.txt console
+ENV account="0"
+ENV bootnodeId=""
+ENV bootnodeIp=""
+
+CMD geth --bootnodes "enode://$bootnodeId@$bootnodeIp:30301" --networkid "900" --datadir ./datadir --unlock $account --password password.txt --mine --verbosity=4
