@@ -15,7 +15,7 @@ services:
     depends_on:
       - bootnode
     environment:
-      - account=0
+      - account=0x8404AFE09D770271c935019F9f774CBA2bea291d
       - bootnodeId=5989d09f7fcd113e90501cdd7c136400199fc186330599a3d97586e1e68987f5833c09223e54e010d5b42ddae4b43b23d72768930c5946baf9a12494ce9dc91d
       - bootnodeIp=172.25.0.101
     build:
@@ -30,7 +30,7 @@ services:
     depends_on:
       - bootnode
     environment:
-      - account=1
+      - account=0x2DEd039Be2c7e09Ea244F872003C8d50D9CF9F02
       - bootnodeId=5989d09f7fcd113e90501cdd7c136400199fc186330599a3d97586e1e68987f5833c09223e54e010d5b42ddae4b43b23d72768930c5946baf9a12494ce9dc91d
       - bootnodeIp=172.25.0.101
     build:
@@ -45,6 +45,7 @@ services:
     depends_on:
       - bootnode
     environment:
+      - account=0xc8e2d04f0c3a825aae21d54d67cb65a63a154c12
       - bootnodeId=5989d09f7fcd113e90501cdd7c136400199fc186330599a3d97586e1e68987f5833c09223e54e010d5b42ddae4b43b23d72768930c5946baf9a12494ce9dc91d
       - bootnodeIp=172.25.0.101
     build:
