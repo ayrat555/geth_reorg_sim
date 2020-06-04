@@ -4,7 +4,7 @@ services:
     hostname: node-1
     environment:
       - account=0x8404AFE09D770271c935019F9f774CBA2bea291d
-      - bootnodes=enode://a7359bd8b71d6bd605cfbef9b389f50a822bd471b883fa5d9e700fe9e854dc1309fe86a09bffb66091211723c351c056203aefb9bb75018059069f80cee50747@172.25.0.103:30303,enode://7ef0393ed792d1daef5515d6321499ecaa7530b0639c22478ed1beabb251afdb69edadc4d2276273c28e7fc7b019b24f773ade8d53985ef15c97840620f55271@172.25.0.102:30303
+      - bootnodes=enode://a7359bd8b71d6bd605cfbef9b389f50a822bd471b883fa5d9e700fe9e854dc1309fe86a09bffb66091211723c351c056203aefb9bb75018059069f80cee50747@172.25.0.103:30303
     build:
       context: ./node
     ports:
@@ -30,8 +30,8 @@ services:
       chain:
         ipv4_address: 172.25.0.103
 
-  # node-3:
-  #   hostname: node-3
+  # node-rpc:
+  #   hostname: node-rpc
   #   depends_on:
   #     - node-2
   #     - node-1
@@ -39,8 +39,8 @@ services:
   #     - account=0xc8e2d04f0c3a825aae21d54d67cb65a63a154c12
   #     - bootnodes=enode://a7359bd8b71d6bd605cfbef9b389f50a822bd471b883fa5d9e700fe9e854dc1309fe86a09bffb66091211723c351c056203aefb9bb75018059069f80cee50747@172.25.0.103:30303,enode://7ef0393ed792d1daef5515d6321499ecaa7530b0639c22478ed1beabb251afdb69edadc4d2276273c28e7fc7b019b24f773ade8d53985ef15c97840620f55271@172.25.0.102:30303
   #   build:
-  #     context: ./node
-  #   container_name: node-3
+  #     context: ./node_dev
+  #   container_name: node-rpc
   #   ports:
   #     - 9002:8545
   #   networks:

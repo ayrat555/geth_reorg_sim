@@ -8,10 +8,12 @@ ADD ./accounts ./datadir/keystore
 
 ADD ./password.txt ./password.txt
 
+ADD ./static-nodes.json ./datadir/static-nodes.json
+
 ENV account=""
 ENV bootnodes=""
 
-CMD geth --bootnodes $bootnodes --networkid "900991" --gasprice "0" --datadir ./datadir --rpc --rpcaddr "0.0.0.0" --rpcapi "eth,web3,net,admin,debug,db" --rpccorsdomain "*" --syncmode="full" --unlock $account --password password.txt --allow-insecure-unlock --nat extip:`hostname -i`
+CMD sleep 15s && geth --bootnodes $bootnodes  --networkid "9010100" --gasprice "0" --datadir ./datadir --unlock $account --password password.txt --nat extip:`hostname -i` --syncmode="full"  --allow-insecure-unlock --rpc --rpcaddr "0.0.0.0" --rpcapi "eth,web3,net,admin,debug,db" --rpccorsdomain "*" --mine  --etherbase $account
 
 EXPOSE 8545
 EXPOSE 30303
