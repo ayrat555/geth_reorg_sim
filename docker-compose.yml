@@ -30,6 +30,21 @@ services:
       chain:
         ipv4_address: 172.25.0.103
 
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    depends_on:
+      - node-1
+      - node-2
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      chain:
+        ipv4_address: 172.25.0.104
+
 networks:
   chain:
     driver: bridge

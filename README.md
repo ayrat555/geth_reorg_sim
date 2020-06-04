@@ -17,6 +17,8 @@ Both nodes expose JSON RPC API:
 - http://localhost:9000 - the first node
 - http://localhost:9001 - the second node
 
+They are load balanced by nginx which runs on http://localhost:80
+
 Both nodes have three addresses unlocked:
 
 - 0x2ded039be2c7e09ea244f872003c8d50d9cf9f02
@@ -27,8 +29,8 @@ To trigger reorgs:
 
 - Choose one of the three account to submit transactions with
 - Pause the first node with `pumba pause -d 100s node-1`
-- While the first node is paused, submit transactions to the second node using json rpc api (`http://localhost:9001`)
+- While the first node is paused, submit transactions to the second node using json rpc api
 - Pause the second node with `pumba pause -d 100s node-2`
 - Unpause the first node
-- Submit transactions to the first node using json rpc api (`http://localhost:9000`)
-- Now the first and the second nodes have different sets of blocks and transactions. Unpause the second node
+- Submit transactions to the first node using json rpc api
+- Now the first and the second nodes have different sets of blocks and transactions. Unpause the second node - reorganization will be found.
