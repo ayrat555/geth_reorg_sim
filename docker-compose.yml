@@ -45,6 +45,19 @@ services:
       chain:
         ipv4_address: 172.25.0.104
 
+  deployer:
+    container_name: deployer
+    depends_on:
+      - nginx
+    ports:
+      - 8000:8000
+    build:
+      context: ./deployer
+    networks:
+      chain:
+        ipv4_address: 172.25.0.105
+
+
 networks:
   chain:
     driver: bridge
