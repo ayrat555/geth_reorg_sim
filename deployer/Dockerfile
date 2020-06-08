@@ -2,6 +2,8 @@ FROM node:latest
 
 ADD ./plasma-contracts/contracts /home/node/plasma_framework/build/contracts
 
+ADD ./truffle-config.js /home/node/plasma_framework/truffle-config.js
+
 RUN chown -R node /home/node/plasma_framework
 
 USER node
@@ -14,4 +16,4 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 
 RUN npm install -g truffle
 
-RUN cd plasma_framework && truffle init --force && truffle migrate
+CMD cd plasma_framework && sleep 20  && truffle migrate --verbose-rpc
