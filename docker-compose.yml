@@ -6,7 +6,7 @@ services:
       - account=0x8404AFE09D770271c935019F9f774CBA2bea291d
       - bootnodes=enode://a7359bd8b71d6bd605cfbef9b389f50a822bd471b883fa5d9e700fe9e854dc1309fe86a09bffb66091211723c351c056203aefb9bb75018059069f80cee50747@172.25.0.103:30303
     build:
-      context: ./node
+      context: ./miner_node1
     ports:
       - 9000:8545
     container_name: node-1
@@ -22,7 +22,7 @@ services:
       - account=0x2DEd039Be2c7e09Ea244F872003C8d50D9CF9F02
       - bootnodes=enode://7ef0393ed792d1daef5515d6321499ecaa7530b0639c22478ed1beabb251afdb69edadc4d2276273c28e7fc7b019b24f773ade8d53985ef15c97840620f55271@172.25.0.102:30303
     build:
-      context: ./node
+      context: ./miner_node2
     ports:
       - 9001:8545
     container_name: node-2
@@ -44,19 +44,6 @@ services:
     networks:
       chain:
         ipv4_address: 172.25.0.104
-
-  deployer:
-    container_name: deployer
-    depends_on:
-      - nginx
-    ports:
-      - 8000:8000
-    build:
-      context: ./deployer
-    networks:
-      chain:
-        ipv4_address: 172.25.0.105
-
 
 networks:
   chain:
